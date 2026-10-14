@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyPilot helps students organize assignments, deadlines, and study goals.">
+  <title>StudyPilot | Student Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="StudyPilot home">
+        <span class="brand-mark">S</span>
+        <span>StudyPilot</span>
+      </a>
+      <p class="nav-label">WORKSPACE</p>
+      <button class="nav-item active" data-view="all"><span>▦</span> Overview</button>
+      <button class="nav-item" data-view="today"><span>◷</span> Due today</button>
+      <button class="nav-item" data-view="completed"><span>✓</span> Completed</button>
+      <div class="sidebar-tip">
+        <span class="tip-icon">✦</span>
+        <strong>Small steps count.</strong>
+        <p>Focus on one task at a time. Your future self will thank you.</p>
+      </div>
+      <p class="sidebar-footer">Made for students, with care.</p>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow" id="today-label">YOUR STUDY SPACE</p>
+          <h1>Good things take focus<span class="wave"> ✨</span></h1>
+          <p class="subtitle">Plan your work. Make progress. Find your balance.</p>
+        </div>
+        <div class="date-pill" id="date-pill">Today</div>
+      </header>
+
+      <section class="stats-grid" aria-label="Study statistics">
+        <article class="stat-card">
+          <div class="stat-top"><span>Total tasks</span><span class="stat-icon purple">▤</span></div>
+          <strong id="total-count">0</strong>
+          <p>Things on your list</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Completed</span><span class="stat-icon green">✓</span></div>
+          <strong id="completed-count">0</strong>
+          <p>Wins, big and small</p>
+        </article>
+        <article class="stat-card">
+          <div class="stat-top"><span>Due today</span><span class="stat-icon orange">◷</span></div>
+          <strong id="due-count">0</strong>
+          <p>Keep these on your radar</p>
+        </article>
+        <article class="stat-card progress-card">
+          <div class="stat-top"><span>Overall progress</span><span class="stat-icon blue">↗</span></div>
+          <strong id="progress-number">0%</strong>
+          <div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div>
+          <p id="progress-caption">Start with your first task</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel task-panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">YOUR PLAN</p>
+              <h2 id="list-title">My tasks</h2>
+            </div>
+            <span class="task-count" id="list-count">0 tasks</span>
+          </div>
+
+          <form id="task-form" class="task-form">
+            <div class="field full-field">
+              <label for="task-title">Task name</label>
+              <input id="task-title" name="title" type="text" maxlength="100" placeholder="e.g. Review Discrete Mathematics" required>
+            </div>
+            <div class="field">
+              <label for="task-subject">Subject</label>
+              <input id="task-subject" name="subject" type="text" maxlength="50" placeholder="e.g. Mathematics">
+            </div>
+            <div class="field">
+              <label for="task-due">Due date</label>
+              <input id="task-due" name="due" type="date">
+            </div>
+            <div class="field">
+              <label for="task-priority">Priority</label>
+              <select id="task-priority" name="priority">
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+            <button class="primary-button add-button" type="submit">＋ Add task</button>
+          </form>
+
+          <div class="list-toolbar">
+            <span class="toolbar-label">TASK LIST</span>
+            <button id="clear-completed" class="text-button" type="button">Clear completed</button>
+          </div>
+          <div id="task-list" class="task-list" aria-live="polite"></div>
+          <div id="empty-state" class="empty-state">
+            <div class="empty-illustration">✎</div>
+            <h3>Your plan starts here</h3>
+            <p>Add a task above and take the first step.</p>
+          </div>
+        </div>
+
+        <aside class="right-column">
+          <section class="panel focus-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">A LITTLE MOTIVATION</p><h2>Today's focus</h2></div>
+              <span class="focus-spark">✦</span>
+            </div>
+            <p class="focus-quote">“You don't have to do everything today. Just the next right thing.”</p>
+            <div class="focus-divider"></div>
+            <p class="focus-small">A simple plan for a calmer study day</p>
+            <ul class="focus-list">
+              <li><span>01</span> Choose one important task</li>
+              <li><span>02</span> Work for 25 focused minutes</li>
+              <li><span>03</span> Take a short break</li>
+            </ul>
+          </section>
+
+          <section class="panel tips-panel">
+            <div class="panel-heading"><div><p class="eyebrow">STUDY SMARTER</p><h2>Quick tip</h2></div><span class="tip-bulb">☼</span></div>
+            <p>Break a large assignment into smaller tasks. “Study for an exam” is hard to start; “revise chapter one” is much easier.</p>
+          </section>
+          <button id="reset-demo" class="text-button reset-button" type="button">Reset sample tasks</button>
+        </aside>
+      </section>
+      <footer class="page-footer">StudyPilot <span>•</span> Your progress, one task at a time.</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
